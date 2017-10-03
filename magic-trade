@@ -1,0 +1,324 @@
+\q
+\dt
+\l
+\connect testdb
+\dt
+\l
+CREATE TABLE authors (
+  author_id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+);
+CREATE TABLE books (
+  book_id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  rating INTEGER NOT NULL,
+  author_id INTEGER REFERENCES authors(author_id)
+);
+CREATE TABLE adaptations (
+  film_id SERIAL PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  rating INTEGER NOT NULL,
+  director VARCHAR(100) NOT NULL,
+  book_id INTEGER REFERENCES books(book_id)
+);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Great Expectations', 6, 'Alfonso Cuaron', 1);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Great Expectations', 6, 'Mike Newell', 1);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Great Expectations', 8, 'David Lean', 1);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Oliver!', 7, 'Carol Reed', 2);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('I, Robot', 7, 'Alex Proyas', 6);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Pride and Prejudice', 9, 'Simon Langton', 8);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Pride & Prejudice', 7, 'Joe Wright', 8);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Naked Lunch', 7, 'David Cronenberg', 10);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Hitchhiker''s Guide to the Galaxy', 5, 'Garth Jennings', 11);
+INSERT INTO authors (name) VALUES ('Charles Dickens');
+INSERT INTO authors (name) VALUES ('Neal Stephenson');
+INSERT INTO authors (name) VALUES ('Margaret Atwood');
+INSERT INTO authors (name) VALUES ('Isaac Asimov');
+INSERT INTO authors (name) VALUES ('Jane Austen');
+INSERT INTO authors (name) VALUES ('William Burroughs');
+INSERT INTO authors (name) VALUES ('Douglas Adams');
+INSERT INTO books (name, rating, author_id) VALUES ('Great Expectations', 8, 1);
+INSERT INTO books (name, rating, author_id) VALUES ('Oliver Twist', 6, 1);
+INSERT INTO books (name, rating, author_id) VALUES ('Snow Crash', 8, 2);
+INSERT INTO books (name, rating, author_id) VALUES ('Cryptonomicon', 7, 2);
+INSERT INTO books (name, rating, author_id) VALUES ('Oryx and Crake', 9, 3);
+INSERT INTO books (name, rating, author_id) VALUES ('I, Robot', 6, 4);
+INSERT INTO books (name, rating, author_id) VALUES ('The Rest of the Robots', 5, 4);
+INSERT INTO books (name, rating, author_id) VALUES ('Pride and Prejudice', 9, 5);
+INSERT INTO books (name, rating, author_id) VALUES ('Sense and Sensibility', 7, 5);
+INSERT INTO books (name, rating, author_id) VALUES ('Naked Lunch', 5, 6);
+INSERT INTO books (name, rating, author_id) VALUES ('Hitchhiker''s Guide to the Galaxy', 9, 7);
+INSERT INTO books (name, rating, author_id) VALUES ('The Restaurant at the End of the Universe', 6, 7);
+\ft
+\dt
+select * from books
+;
+select * from books
+;
+select * from author;
+select * from authors;
+select * from adaptations;
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Great Expectations', 6, 'Alfonso Cuaron', 1);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Great Expectations', 6, 'Mike Newell', 1);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Great Expectations', 8, 'David Lean', 1);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Oliver!', 7, 'Carol Reed', 2);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('I, Robot', 7, 'Alex Proyas', 6);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Pride and Prejudice', 9, 'Simon Langton', 8);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Pride & Prejudice', 7, 'Joe Wright', 8);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Naked Lunch', 7, 'David Cronenberg', 10);
+INSERT INTO adaptations (
+  title, rating, director, book_id
+) VALUES ('Hitchhiker''s Guide to the Galaxy', 5, 'Garth Jennings', 11);
+SELECT * from adaptations;
+select count(*) from books;
+select rating, count(rating) FROM books group by rating;
+alter table adaptations ADD COLUMN year INTEGER;
+alter table adaptations alter column year set not null;
+select film_id as number, title, book_id as book from adaptations;
+select * from authors JOIN books ON books.author_id = authors.author_id;
+select authors.name, books.name, books.rating from author join books on books.author_id = authors.author_id;
+select authors.name, books.name, books.rating from authors join books on books.author_id = authors.author_id;
+select authors.name AS author, books.name AS title, books.rating from authors join books on books.author_id = authors.author_id;
+SELECT
+CASE books.rating
+WHEN 6 THEN 'trash'
+WHEN 7 THEN 'okay'
+WHEN 8 then 'good'
+ELSE 'great'
+END FROM books;
+SELECT books.name,
+CASE books.rating
+WHEN 6 THEN 'trash'
+WHEN 7 THEN 'okay'
+WHEN 8 then 'good'
+ELSE 'great'
+END FROM books;
+\quit
+\q
+\l
+\c booktown
+\dt
+\q
+\l
+\q
+\l
+\c userapp 
+\dt
+select * from users
+;
+\q
+\c userapp 
+selec * from users
+;
+select * from users;
+\q
+\c userapp 
+\dt
+select * from users;
+select * from users;
+\q
+\c userapp 
+\dt
+select * from users
+;
+\q
+\c userapp 
+select * from users
+;
+\q
+select * from users
+;
+select * from users;
+\q
+\c userapp 
+select * from users;
+\q
+\c userapp 
+select * from users;
+\q
+\c blog 
+\dt
+\q
+\c blog
+\dt
+select * from authors
+;
+select * from posts;
+\q
+\dt
+\l
+\c pokedex 
+\dt
+\l
+\q
+\q
+\dt
+\l
+CREATE TABLE pokemon (
+id SERIAL PRIMARY KEY,
+name TEXT
+);
+\dt
+\l
+ \dt
+ALTER TABLE pokemon RENAME TO pokemons;
+\dt
+select * from pokemons;
+alter table pokemons drop column id;
+select * from pokemons;
+drop table pokemons;
+\dt
+\dt
+select * from pokemons
+;
+\q
+createdb link-db
+\l
+;
+createdb link;
+create db link;
+createdb userapp;
+\q
+\l
+\q
+\l
+\c links
+\dt
+\l
+\q
+\c links
+\l
+\dt
+\q
+\c links
+select * from links;
+select * from links;
+\dt
+select * from links;
+db.links.create({
+url: "google.com"});
+ALTER TABLE links RENAME to link;
+\dt
+select * from link;
+\q
+DROP DATABASE links
+\l
+;
+\l
+\q
+\c links
+\dt
+\q
+\c blogpulse_development 
+\dt
+select * from authors;
+\q
+\c blogpulse_development 
+\dt
+\q
+\c blogpulse_development 
+\dt
+select * from posts;
+select * from comments;
+\q
+\c blogpulse_development 
+select * from author;
+\dt
+select * from authors;
+select * from posts;
+\q
+\c blogpulse_development 
+\dt
+select * from tags;
+\q
+\c blogpulse_development 
+\dt
+select * from tags;
+\q
+\l
+\c project_organizer_development 
+\dt
+select * from categoriesProjects;
+select * from categoriesProjects;
+select * from category;
+select * from categories;
+select * from projects;
+\q
+\l
+\c project_organizer_development 
+select * from project;
+select * from projects;
+\dt
+select * from categories;
+\q
+\l
+\q
+\c tacos_development 
+\dt
+select * from tacos
+;
+\q
+\c tacos_development 
+select * from tacos;
+\dt
+\q
+\l
+\q
+\l
+\q
+\l
+\q
+\l
+\c auth_boilerplate
+\l
+\q
+\l
+\connect auth-boilerplate
+\l
+\dt
+select * from users
+;
+\q
+\c magic-trade
+\dt
+select* from users;
+\q
+\c magic-trade
+\dt
+select * from users;
+\q
+\s magic-trade
