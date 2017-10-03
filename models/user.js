@@ -1,3 +1,5 @@
+var bcrypt = require('bcrypt')
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     var user = sequelize.define('user', {
@@ -14,10 +16,13 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 len: {
                     args: [1, 99],
-                    msg: "Profile Name must be between 1 and 99 characters"
+                    msg: "Name must be between 1 and 99 characters"
                 }
             }
         },
+        // firstName: DataTypes.STRING,
+        // lastName: DataTypes.STRING,
+        // location: DataTypes.STRING,
         password: {
             type: DataTypes.STRING,
             validate: {
@@ -38,16 +43,24 @@ module.exports = (sequelize, DataTypes) => {
                 cb(null, createdUser);
             }
         },
-        firstName: DataTypes.STRING,
-        lastName: DataTypes.STRING,
-        location: DataTypes.STRING
-    }, {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
             }
         },
-
+        instanceMethods: {
+            validPassword: function(password) {
+                // return if the password matches the hash
+                return bcrypt.compareSync(password, this.password);
+            },
+            toJSON: function() {
+                // get the user's JSON data
+                var jsonUser = this.get();
+                // delete the password from the JSON data, and return
+                delete jsonUser.password;
+                return jsonUser;
+            }
+        }
     });
     return user;
 };
