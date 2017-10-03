@@ -1,0 +1,14 @@
+#header {
+    margin-bottom: 10px;
+}
+
+#nav-head {
+    list-style: none;
+    display: inline;
+    text-decoration: none;
+}
+
+#nav-head li {
+    color: red;
+    display: inline-block;
+}
