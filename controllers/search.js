@@ -9,7 +9,7 @@ router.get("/", function(req, res) {
     res.render('search/index')
 });
 
-router.post("/results", function(req, res) {
+router.post("/result", function(req, res) {
     var scryApi = "https://api.scryfall.com/cards/search?q=";
     var q = req.body.name;
     request(scryApi + q, function(error, response, body) {
@@ -17,7 +17,8 @@ router.post("/results", function(req, res) {
             return res.send(error);
         }
         var data = JSON.parse(body);
-        res.send(data);
+        var results = data.data
+        res.render('search/result', { results: results })
     });
 });
 
