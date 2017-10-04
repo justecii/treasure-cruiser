@@ -18,7 +18,11 @@ router.get("/", isLoggedIn, function(req, res) {
     // console.log(req.user.id);
     //     })
     // })
-    db.collection.findAll().then(function(result) {
+    var userId = String(req.user.id);
+    console.log(userId);
+    db.collection.findAll({
+        where: { userId: userId },
+    }).then(function(result) {
         res.render('collection/index', { result: result });
     }).catch(function(error) {
         res.send('There is some kind of error!');
