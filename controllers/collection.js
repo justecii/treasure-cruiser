@@ -7,22 +7,12 @@ var request = require('request');
 var isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get("/", isLoggedIn, function(req, res) {
-    // db.user.findOne({
-    //     where: {
-    //         id: req.user.id
-    //     }
-    // }).then(function(user) {
-    //     user.getCollections().then(function(collections) {
-    //         console.log(collections);
-    // res.render('collection/index')
-    // console.log(req.user.id);
-    //     })
-    // })
     var userId = String(req.user.id);
     console.log(userId);
     db.collection.findAll({
         where: { userId: userId },
     }).then(function(result) {
+
         res.render('collection/index', { result: result });
     }).catch(function(error) {
         res.send('There is some kind of error!');
