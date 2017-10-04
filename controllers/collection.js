@@ -8,7 +8,6 @@ var isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get("/", isLoggedIn, function(req, res) {
     res.render('collection/index')
-    console.log(req.user.id)
 });
 router.post("/", isLoggedIn, function(req, res) {
     db.user.findOne({
@@ -16,19 +15,12 @@ router.post("/", isLoggedIn, function(req, res) {
             id: req.user.id
         }
     }).then(function(user) {
-        // user.createCollection({
-        //     cardId: req.body.name
-        // }).then(function(collection) {
-
-        // })
-        // db.collection.create({
-        //     cardId: data.id,
-        // }).then(function() {
-        //     console.log("added to db")
-        // })
-        console.log(req.body.name)
-        res.send('/');
-
+        user.createCollection({
+            cardId: req.body.name
+        }).then(function(collection) {
+            console.log("added to db");
+            res.send('/');
+        })
     })
 });
 
