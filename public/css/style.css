@@ -12,3 +12,7 @@
     color: red;
     display: inline-block;
 }
+
+.cardDisplay {
+    display: inline-block;
+}
