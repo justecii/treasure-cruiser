@@ -1,8 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     var collection = sequelize.define('collection', {
-        cardId: DataTypes.STRING,
-        userId: DataTypes.STRING
+        cardName: DataTypes.STRING,
+        img: DataTypes.STRING,
+        bigImg: DataTypes.STRING,
+        set: DataTypes.STRING,
+        multiverseId: DataTypes.STRING,
+        rarity: DataTypes.STRING,
+        userId: DataTypes.INTEGER
     }, {
         classMethods: {
             associate: function(models) {

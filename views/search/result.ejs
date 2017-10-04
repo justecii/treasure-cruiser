@@ -12,13 +12,19 @@
     <h2 class="capitalize"><%= results.name %></h2>
     <p>Code: <%= results.set%></p>
     <p>Set Name: <%= results.set_name%></p>
+    <p>Rarity: <%= results.rarity %></p>
 
     <div class="prices">
       <p>Price: <%= results.usd%></p>
     </div>
     <div>
       <form method="POST" action="/collection">
-        <input hidden type="text" name="name" value="<%= results.id %>">
+        <input hidden type="text" name="name" value="<%= results.name%>">
+        <input hidden type ="text" name="img" value="<%= results.image_uris.small%>">
+        <input hidden type ="text" name="bigImg" value="<%= results.image_uris.normal%>">
+        <input hidden type ="text" name="set" value="<%= results.set_nanem%>">
+        <input hidden type ="text" name="id" value="<%= results.multiverse_id %>">
+        <input hidden type ="text" name="rarity" value="<%= results.rarity%>">
         <button class="btn btn-primary" type="submit">Add to Collection</button>
       </form>
     </div>

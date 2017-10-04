@@ -25,12 +25,19 @@ router.post("/", isLoggedIn, function(req, res) {
             id: req.user.id
         }
     }).then(function(user) {
-        user.createCollection({
-            cardId: req.body.name
-        }).then(function(collection) {
-            console.log("added to db");
-            res.send('/');
-        })
+        res.send(req.body)
+            // user.createCollection({
+            //         cardName: req.body.name,
+            //         img: req.body.img,
+            //         bigImg: req.body.bigImg,
+            //         set: req.body.set,
+            //         mutliverseId: req.body.id,
+            //         rarity: req.body.rarity,
+            //     })
+            //     .then(function(collection) {
+            //         console.log("added to db");
+            //         res.send('/');
+            //     })
     })
 });
 
