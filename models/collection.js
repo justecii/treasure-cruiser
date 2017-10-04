@@ -1,13 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     var collection = sequelize.define('collection', {
-        card: DataTypes.STRING,
-        version: DataTypes.STRING
+        cardId: DataTypes.STRING,
+        userId: DataTypes.STRING
     }, {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
-                models.collection.belongsToMany(models.user, { through: "usersCollections" })
+                models.collection.belongsTo(models.user)
             }
         }
     });
