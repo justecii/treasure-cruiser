@@ -26,6 +26,7 @@ router.get("/", isLoggedIn, function(req, res) {
     });
 
 });
+//add a card to collection
 router.post("/", isLoggedIn, function(req, res) {
     db.user.findOne({
         where: {
@@ -47,5 +48,13 @@ router.post("/", isLoggedIn, function(req, res) {
             })
     })
 });
+//remove card from collection
+router.delete('/:name', function(req, res) {
+    db.pokemon.destroy({
+        where: { name: req.params.name }
+    }).then(function() {
+        //
+    })
+})
 
 module.exports = router;
