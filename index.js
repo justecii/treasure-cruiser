@@ -47,7 +47,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // app.get('/', function(req, res) {
-//     res.render('index');
+//     res.render('nologin');
 // });
 app.get("/", isLoggedIn, function(req, res) {
     var userId = String(req.user.id);
