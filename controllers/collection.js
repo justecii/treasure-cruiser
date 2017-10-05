@@ -28,9 +28,11 @@ router.post("/", isLoggedIn, function(req, res) {
                 cardName: req.body.name,
                 img: req.body.img,
                 bigImg: req.body.bigImg,
-                set: req.body.setName,
+                setName: req.body.setName,
                 mutliverseId: req.body.id,
                 rarity: req.body.rarity,
+                price: req.body.price
+
             })
             .then(function(collection) {
                 console.log("added to db");

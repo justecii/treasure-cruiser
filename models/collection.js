@@ -4,9 +4,10 @@ module.exports = (sequelize, DataTypes) => {
         cardName: DataTypes.STRING,
         img: DataTypes.STRING,
         bigImg: DataTypes.STRING,
-        setname: DataTypes.STRING,
+        setName: DataTypes.STRING,
         multiverseId: DataTypes.STRING,
         rarity: DataTypes.STRING,
+        price: DataTypes.STRING,
         userId: DataTypes.INTEGER
     }, {
         classMethods: {
