@@ -70,6 +70,7 @@ app.use('/auth', require('./controllers/auth'));
 app.use('/search', require('./controllers/search'));
 app.use('/collection', require('./controllers/collection'))
 
+//heroku will look for the process.env.port and deploy to an open space
 var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;
