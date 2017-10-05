@@ -1,15 +1,27 @@
-<h1>My Collection</h1>
-<% result.forEach(function(result) {%>
-  <div class="well">
-    <div class="cardDisplay">
-      <img class="cardThumb" src="<%= result.img %>">
-    </div>
-    <div class="cardDisplay">
-      <h2 class="capitalize"><%= result.cardName %></h2>
-      <p>Set Name: <%= result.setName%></p>
-      <p>Rarity: <%= result.rarity %></p>
-      <p>Price: $<%= result.price %></p>
-    </div>
+<div class="col-xs-9">
+  <h1>My Collection</h1>
+  <% result.forEach(function(result) {%>
+    <div class="well">
+      <div class="cardDisplay">
+        <img class="cardThumb" src="<%= result.img %>">
+      </div>
+      <div class="cardDisplay">
+        <h2 class="capitalize"><%= result.cardName %></h2>
+        <p>Set Name: <%= result.setName%></p>
+        <p>Rarity: <%= result.rarity %></p>
+        <p>Price: $<%= result.price %></p>
+      </div>
+      <div class='buttons'>
+        <input type="button" name="update" value="Update Price" class="update">
+        <input type="button" name="remove" value="Delete from collection" class="remove">
+      </div>
 
-  </div>
-   <% });%>
+    </div>
+    <% });%>
+</div>
+<div class="col-xs-3">
+  <h2>Instructions:</h2>
+  <p>To get up to the minute prices, press Update Price. </br>To Remove a card from your trade collection, hit Delete</p>
+  <p>Collection Value:<%= %></p>
+</div>
+

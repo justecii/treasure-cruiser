@@ -11,7 +11,15 @@ router.get("/", isLoggedIn, function(req, res) {
     db.collection.findAll({
         where: { userId: userId },
     }).then(function(result) {
-
+        //Calculate sum of collection
+        var priceSum = [];
+        for (var i = 0; i < result.length; i++) {
+            var makeNum = parseFloat(result[i].price);
+            if (makeNum > 0) {
+                priceSum.push(makeNum);
+            }
+        }
+        console.log(priceSum);
         res.render('collection/index', { result: result });
     }).catch(function(error) {
         res.send('There is some kind of error!');

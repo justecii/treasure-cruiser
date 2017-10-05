@@ -40,8 +40,9 @@ select {
 }
 
 .well {
-    width: 450px;
+    width: 400px;
     display: inline-block;
+    background-color: rgba(121, 140, 12, 0.5);
 }
 
 .getPrice {
@@ -64,4 +65,12 @@ select {
 .add {
     background-color: #0CB80C;
     color: white;
+}
+
+.update {
+    background-color: blue;
+}
+
+.remove {
+    background-color: red;
 }

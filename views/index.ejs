@@ -1,14 +1,36 @@
+<script>
+//still needs work
+  var counter = 1;
+  var limit = 3;
+  function addInput(divName){
+      if (counter == limit)  {
+            alert("You have reached the limit of adding " + counter + " inputs");
+      }
+      else {
+            var newdiv = document.createElement('select');
+            var option = document.createElement('option');
+            option.text = "Kiwi";
+            newdiv.add(option);
+
+            document.getElementById(divName).appendChild(newdiv);
+            counter++;
+      }
+  }
+</script>
+
 <div>
   <div class="col-xs-8">
     <h1>My Trades</h1>
-    <div>
-      <select class="form-control">
-        <option>Select Card to Trade</option>
-      <% results.forEach(function(results){ %>
-        <option class="trades"><%= results.cardName %></option>
-      <% }) %>
+      <div id="dynamicInput">
+        <select class="form-control">
+          <option>Select Card to Trade</option>
+        <% results.forEach(function(results){ %>
+          <option class="trades"><%= results.cardName %></option>
+        <% }) %>
       </select>
-      <button class="add">+</button>
+      </div>
+      <button class="add" onClick="addInput('dynamicInput');">+</button>
+
     </div>
   </div>
   <div class="col-xs-4">
