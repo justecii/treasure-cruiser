@@ -1,15 +1,17 @@
+<h1>My Collection</h1>
 <% result.forEach(function(result) {%>
   <div class="well">
     <div class="cardDisplay">
-      <img src="<%= result.img %>">
+      <img class="cardThumb" src="<%= result.img %>">
     </div>
     <div class="cardDisplay">
       <h2 class="capitalize"><%= result.cardName %></h2>
-      <p>Set Name: <%= result.setId%></p>
+      <p>Set Name: <%= result.setName%></p>
       <p>Rarity: <%= result.rarity %></p>
+      <div class="prices">
+        <button class="getPrice">GetPrices</button>
+      </div>
     </div>
-    <div class="prices">
-      <button>GetPrices</button>
-    </div>
+
   </div>
    <% });%>

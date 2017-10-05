@@ -7,6 +7,7 @@ var app = express();
 var session = require('express-session');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
+var db = require('./models');
 
 app.set('view engine', 'ejs');
 
@@ -45,8 +46,20 @@ var passport = require('./config/ppConfig');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function(req, res) {
-    res.render('index');
+// app.get('/', function(req, res) {
+//     res.render('index');
+// });
+app.get("/", isLoggedIn, function(req, res) {
+    var userId = String(req.user.id);
+    db.collection.findAll({
+        where: { userId: userId },
+    }).then(function(results) {
+
+        res.render('index', { results: results });
+    }).catch(function(error) {
+        res.send('There is some kind of error!');
+    });
+
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {

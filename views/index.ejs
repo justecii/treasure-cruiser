@@ -1,11 +1,20 @@
-<form action="/search/result" method="POST">
-  <div class="form-group">
-    <label for="name">Card Name</label>
-    <input id="name" class="form-control" type="text" name="name" placeholder="Search Card">
-    <input class="btn btn-primary" type="submit">
-  </div>
-</form>
 
-
+<h1>My Trades</h1>
+<div>
+  <select class="form-control">
+  <% results.forEach(function(results){ %>
+    <option class="trades"><%= results.cardName %></option>
+  <% }) %>
+  </select>
+  <button>Add</button>
+</div>
+<div>
+  <select class="form-control">
+  <% results.forEach(function(results){ %>
+    <option><%= results.cardName %></option>
+  <% }) %>
+  </select>
+  <button>Add</button>
+</div>
 
 

@@ -1,3 +1,18 @@
+body {
+    background-image: url("/img/treasure-cruise.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: gold;
+}
+
+#name {
+    font-size: 1em;
+}
+
+select {
+    max-width: 50%;
+}
+
 #header {
     margin-bottom: 10px;
 }
@@ -15,4 +30,30 @@
 
 .cardDisplay {
     display: inline-block;
+    margin-right: 10px;
+}
+
+.cardThumb {
+    height: 150px;
+}
+
+.well {
+    width: 450px;
+    display: inline-block;
+}
+
+.getPrice {
+    background-color: #3535F3;
+    color: gold;
+}
+
+.search {
+    position: relative;
+}
+
+.search .fa-search {
+    position: absolute;
+    top: 4px;
+    left: 88%;
+    font-size: 20px;
 }

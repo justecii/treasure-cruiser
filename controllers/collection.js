@@ -8,7 +8,6 @@ var isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get("/", isLoggedIn, function(req, res) {
     var userId = String(req.user.id);
-    console.log(userId);
     db.collection.findAll({
         where: { userId: userId },
     }).then(function(result) {
@@ -35,7 +34,6 @@ router.post("/", isLoggedIn, function(req, res) {
             })
             .then(function(collection) {
                 console.log("added to db");
-                res.send(req.body);
             })
     })
 });
