@@ -10,10 +10,13 @@
         <p>Set Name: <%= result.setName%></p>
         <p>Rarity: <%= result.rarity %></p>
         <p>Price: $<%= result.price %></p>
+        <p><%= result.id %></p>
       </div>
       <div class='buttons'>
         <input type="button" name="update" value="Update Price" class="update">
-        <input type="button" name="remove" value="Delete from collection" class="remove">
+        <a href="/collection/<%=result.id%>" type="submit" class="btn btn-danger remove">Unfollow</a>
+
+
       </div>
 
     </div>

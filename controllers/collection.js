@@ -19,7 +19,7 @@ router.get("/", isLoggedIn, function(req, res) {
                 priceSum.push(makeNum);
             }
         }
-        console.log(priceSum);
+        // console.log(priceSum);
         res.render('collection/index', { result: result });
     }).catch(function(error) {
         res.send('There is some kind of error!');
@@ -49,12 +49,19 @@ router.post("/", isLoggedIn, function(req, res) {
     })
 });
 //remove card from collection
-router.delete('/:name', function(req, res) {
-    db.pokemon.destroy({
-        where: { name: req.params.name }
+router.delete('/:id', isLoggedIn, function(req, res) {
+    var removeMe = req.params.id
+    console.log(removeMe + "BBBBBBBBBBBBBBBBBBB")
+    db.collection.destroy({
+        where: {
+            id: removeMe,
+        }
     }).then(function() {
-        //
-    })
-})
+        console.log("AaAAAAAAAANNNYYYTHIIINNGN?")
+        res.render('/')
+    }).catch(function(error) {
+        res.send('There is some kind of error!');
+    });
+});
 
 module.exports = router;
