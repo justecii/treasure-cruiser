@@ -13,8 +13,9 @@
         <p><%= result.id %></p>
       </div>
       <div class='buttons'>
-        <input type="button" name="update" value="Update Price" class="update">
-        <a href="/collection/<%=result.id%>" type="submit" class="btn btn-danger remove">Unfollow</a>
+        <input type="button" name="update" value="Update Price" class="update btn">
+        <a href="/collection/<%=result.id%>" type="submit" class="btn btn-danger remove">Remove</a>
+        <input type="button" name="trade" class="btn btn-primary" value="Add to Trade">
 
 
       </div>
@@ -25,6 +26,6 @@
 <div class="col-xs-3">
   <h2>Instructions:</h2>
   <p>To get up to the minute prices, press Update Price. </br>To Remove a card from your trade collection, hit Delete</p>
-  <p>Collection Value:<%= %></p>
+  <p>Collection Value: </p>
 </div>
 

@@ -57,10 +57,32 @@ router.delete('/:id', isLoggedIn, function(req, res) {
             id: removeMe,
         }
     }).then(function() {
-        console.log("AaAAAAAAAANNNYYYTHIIINNGN?")
         res.render('/')
     }).catch(function(error) {
         res.send('There is some kind of error!');
+    });
+});
+
+router.put('/', function(req, res) {
+    //Call the api, get the price, change the collections database to have the new price
+    var scryApi = "https://api.scryfall.com/cards/multiverse/";
+    var q = req.body.multiverseId;
+    request(scryApi + q, function(error, response, body) {
+        if (error) {
+            return res.send(error);
+        }
+        var data = JSON.parse(body);
+        var results = data.data
+    }).then(function(results) {
+        db.collection.update({
+            price: results.usd
+        }, {
+            where: {
+                multiverseId: results.multiverse_id //apimultiverseId
+            }
+        })
+    }).then(function() {
+        res.render('/collection')
     });
 });
 
