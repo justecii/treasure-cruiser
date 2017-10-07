@@ -67,27 +67,29 @@ router.put('/:id', function(req, res) {
     var scryApi = "https://api.scryfall.com/cards/multiverse/";
     var dbId = req.params.id;
     db.collection.findById(dbId).then(function(foundCard) {
-            console.log(foundCard)
+        q = foundCard.multiverseId;
+        request(scryApi + q, function(error, response, body) {
+            if (error) {
+                return res.send(error);
+            }
+            var data = JSON.parse(body);
+            var results = data.usd
+            console.log(results)
         })
-        // request(scryApi + q, function(error, response, body) {
-        //     if (error) {
-        //         return res.send(error);
-        //     }
-        //     var data = JSON.parse(body);
-        //     var results = data.data
-        //         // }).then(function(results) {
-        //         //     db.collection.update({
-        //         //         price: results.usd
-        //         //     }, {
-        //         //         where: {
-        //         //             multiverseId: results.multiverse_id //apimultiverseId
-        //         //         }
-        //         //     })
+
         // }).then(function(results) {
-        //     console.log("CLICKED DAT SHIT ____!!!!!!!!!!")
-    res.send(q)
+        //     db.collection.update({
+        //         price: results.usd
+        //     }, {
+        //         where: {
+        //             multiverseId: results.multiverse_id //apimultiverseId
+        //         }
+        //     })
+    }).then(function(results) {
+        console.log("CLICKED DAT SHIT ____!!!!!!!!!!")
+        db.collection.update({ price: results }, { where: { id: dbId } });
         // res.render('collection/index')
-        // });
+    });
 });
 
 module.exports = router;
