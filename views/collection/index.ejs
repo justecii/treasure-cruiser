@@ -10,12 +10,15 @@
         <p>Set Name: <%= result.setName%></p>
         <p>Rarity: <%= result.rarity %></p>
         <p>Price: $<%= result.price %></p>
-        <p><%= result.id %></p>
       </div>
       <div class='buttons'>
-        <input type="button" name="update" value="Update Price" class="update btn">
+        <form action="/collection/<%= result.id %>" method="put" class="put">
+          <input hidden type="text" name="multiverseId" value="<%= result.multiverseId %>">
+          <button type="submit" class="btn-success">Update</button>
+        </form>
         <a href="/collection/<%=result.id%>" type="submit" class="btn btn-danger remove">Remove</a>
         <input type="button" name="trade" class="btn btn-primary" value="Add to Trade">
+
 
 
       </div>
@@ -28,4 +31,6 @@
   <p>To get up to the minute prices, press Update Price. </br>To Remove a card from your trade collection, hit Delete</p>
   <p>Collection Value: </p>
 </div>
+
+
 

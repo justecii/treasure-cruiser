@@ -54,7 +54,6 @@ app.get("/", isLoggedIn, function(req, res) {
     db.collection.findAll({
         where: { userId: userId },
     }).then(function(results) {
-
         res.render('index', { results: results });
     }).catch(function(error) {
         res.send('There is some kind of error!');

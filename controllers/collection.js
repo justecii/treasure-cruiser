@@ -38,7 +38,7 @@ router.post("/", isLoggedIn, function(req, res) {
                 img: req.body.img,
                 bigImg: req.body.bigImg,
                 setName: req.body.setName,
-                mutliverseId: req.body.id,
+                multiverseId: req.body.multiverseId,
                 rarity: req.body.rarity,
                 price: req.body.price
 
@@ -51,7 +51,6 @@ router.post("/", isLoggedIn, function(req, res) {
 //remove card from collection
 router.delete('/:id', isLoggedIn, function(req, res) {
     var removeMe = req.params.id
-    console.log(removeMe + "BBBBBBBBBBBBBBBBBBB")
     db.collection.destroy({
         where: {
             id: removeMe,
@@ -63,27 +62,32 @@ router.delete('/:id', isLoggedIn, function(req, res) {
     });
 });
 
-router.put('/', function(req, res) {
-    //Call the api, get the price, change the collections database to have the new price
+//Call the api, get the price, change the collections database to have the new price
+router.put('/:id', function(req, res) {
     var scryApi = "https://api.scryfall.com/cards/multiverse/";
-    var q = req.body.multiverseId;
-    request(scryApi + q, function(error, response, body) {
-        if (error) {
-            return res.send(error);
-        }
-        var data = JSON.parse(body);
-        var results = data.data
-    }).then(function(results) {
-        db.collection.update({
-            price: results.usd
-        }, {
-            where: {
-                multiverseId: results.multiverse_id //apimultiverseId
-            }
+    var dbId = req.params.id;
+    db.collection.findById(dbId).then(function(foundCard) {
+            console.log(foundCard)
         })
-    }).then(function() {
-        res.render('/collection')
-    });
+        // request(scryApi + q, function(error, response, body) {
+        //     if (error) {
+        //         return res.send(error);
+        //     }
+        //     var data = JSON.parse(body);
+        //     var results = data.data
+        //         // }).then(function(results) {
+        //         //     db.collection.update({
+        //         //         price: results.usd
+        //         //     }, {
+        //         //         where: {
+        //         //             multiverseId: results.multiverse_id //apimultiverseId
+        //         //         }
+        //         //     })
+        // }).then(function(results) {
+        //     console.log("CLICKED DAT SHIT ____!!!!!!!!!!")
+    res.send(q)
+        // res.render('collection/index')
+        // });
 });
 
 module.exports = router;
