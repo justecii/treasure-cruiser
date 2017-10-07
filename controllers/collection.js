@@ -12,15 +12,19 @@ router.get("/", isLoggedIn, function(req, res) {
         where: { userId: userId },
     }).then(function(result) {
         //Calculate sum of collection
-        var priceSum = [];
+        var priceArray = [];
         for (var i = 0; i < result.length; i++) {
             var makeNum = parseFloat(result[i].price);
             if (makeNum > 0) {
-                priceSum.push(makeNum);
+                priceArray.push(makeNum);
             }
         }
-        // console.log(priceSum);
-        res.render('collection/index', { result: result });
+        console.log(priceArray);
+        var priceSum = (priceArray.reduce(function(a, b) {
+            return a + b;
+        }, 0)).toFixed(2);
+        console.log(priceSum)
+        res.render('collection/index', { result: result, priceSum: priceSum });
     }).catch(function(error) {
         res.send('There is some kind of error!');
     });
@@ -76,19 +80,10 @@ router.put('/:id', function(req, res) {
             var results = data.usd
             console.log(results)
         })
-
-        // }).then(function(results) {
-        //     db.collection.update({
-        //         price: results.usd
-        //     }, {
-        //         where: {
-        //             multiverseId: results.multiverse_id //apimultiverseId
-        //         }
-        //     })
     }).then(function(results) {
         console.log("CLICKED DAT SHIT ____!!!!!!!!!!")
         db.collection.update({ price: results }, { where: { id: dbId } });
-        // res.render('collection/index')
+        res.render('collection/index')
     });
 });
 

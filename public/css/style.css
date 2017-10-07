@@ -2,6 +2,7 @@ body {
     background-image: url("/img/treasure-cruise.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: gold;
 }
 
@@ -73,4 +74,9 @@ select {
 
 .remove {
     background-color: red;
+}
+
+.buttons {
+    display: inline;
+    margin: 0 auto;
 }
