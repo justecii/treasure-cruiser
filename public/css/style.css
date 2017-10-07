@@ -40,9 +40,14 @@ select {
     height: 150px;
 }
 
-.well {
+.welp {
     width: 400px;
     display: inline-block;
+    background-color: transparent;
+    border-bottom: 1px solid blue;
+}
+
+.mainBody {
     background-color: rgba(121, 140, 12, 0.5);
 }
 
@@ -79,4 +84,8 @@ select {
 .buttons {
     display: inline;
     margin: 0 auto;
+}
+
+.value {
+    font-size: 2em;
 }
