@@ -54,7 +54,7 @@ app.get("/", isLoggedIn, function(req, res) {
     db.collection.findAll({
         where: { userId: userId },
     }).then(function(results) {
-        res.render('index', { results: results });
+        res.render('index');
     }).catch(function(error) {
         res.send('There is some kind of error!');
     });
@@ -68,6 +68,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 app.use('/auth', require('./controllers/auth'));
 app.use('/search', require('./controllers/search'));
 app.use('/collection', require('./controllers/collection'))
+app.use('/trade', require('./controllers/trade'))
 
 //heroku will look for the process.env.port and deploy to an open space
 var server = app.listen(process.env.PORT || 3000);
