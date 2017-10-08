@@ -23,7 +23,6 @@ router.get("/", isLoggedIn, function(req, res) {
         var priceSum = (priceArray.reduce(function(a, b) {
             return a + b;
         }, 0)).toFixed(2);
-        console.log(priceSum)
         res.render('trade/index', { result: result, priceSum: priceSum });
     }).catch(function(error) {
         res.send('There is some kind of error!');
@@ -46,6 +45,20 @@ router.post("/", isLoggedIn, function(req, res) {
                 console.log("added to db");
             })
     })
+});
+
+//remove card from trade
+router.delete('/:id', isLoggedIn, function(req, res) {
+    var removeMe = req.params.id
+    db.trade.destroy({
+        where: {
+            id: removeMe,
+        }
+    }).then(function() {
+        res.render('/')
+    }).catch(function(error) {
+        res.send('There is some kind of error!');
+    });
 });
 
 module.exports = router;

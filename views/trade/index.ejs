@@ -11,7 +11,8 @@
       <tr>
         <td class="cardId"><%= result.cardName %></td>
         <td class="price">$<%= result.price %></td>
-        <td><button type="submit" class="btn btn-danger">-</button></td>
+        <td><a href="/trade/<%=result.id%>" type="submit" class="btn btn-danger noTrade">-</a></td>
+
       </tr>
       <% });%>
     </tbody>
@@ -25,7 +26,7 @@
     </tr>
   </table>
 </div>
-<div>
+<div class="col-xs-3 sidebar">
   <h2>How to Trade:</h2>
   <p>Go to your collection to add cards to trade. We'll keep track of the value as you go.<br>
     Remove a card from your trade by hitting the red button. <br>

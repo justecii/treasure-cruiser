@@ -34,8 +34,11 @@ select {
 }
 
 #nav-head li {
-    color: red;
     display: inline-block;
+}
+
+#nav-head a {
+    color: rgb(233, 205, 12);
 }
 
 .cardDisplay {
@@ -59,6 +62,7 @@ select {
     background-color: rgba(121, 140, 12, 0.5);
     height: 700px;
     overflow: auto;
+    color: white;
 }
 
 .getPrice {
@@ -104,12 +108,30 @@ select {
     width: 1em;
 }
 
+.sidebar {
+    color: rgba(233, 205, 12, 1)
+}
+
 .balance {
     border-top: 1px solid black;
+    width: 400px;
     position: absolute;
     bottom: 150px;
 }
 
+.ledger {
+    width: 400px;
+}
+
 .bottomRow th {
     padding-top: 20px;
+}
+
+.fp {
+    font-size: 10px;
+    color: white;
+}
+
+#footer ul {
+    list-style: none;
 }
