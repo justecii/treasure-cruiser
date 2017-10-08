@@ -1,0 +1,21 @@
+<h2>My Trades</h2>
+<table class="ledger">
+  <thead>
+    <th>Card Name</th>
+    <th>Price</th>
+  </thead>
+  <tbody>
+    <% result.forEach(function(result) {%>
+    <tr>
+      <td class="cardId"><%= result.cardName %></td>
+      <td class="price">$<%= result.price %></td>
+    </tr>
+    <% });%>
+  </tbody>
+</table>
+
+<table class="balance">
+  <th>Trade Value</th>
+  <th><%= priceSum %></th>
+</table>
+
