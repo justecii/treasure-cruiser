@@ -3,7 +3,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: gold;
+    color: rgba(233, 205, 12);
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -22,8 +22,8 @@ select {
 
 #header {
     margin-bottom: 10px;
-    background-color: #EBCC34;
-    color: blue;
+    background-color: rgb(36, 35, 128);
+    color: rgb(233, 205, 12);
     width: 100%;
 }
 
@@ -57,6 +57,8 @@ select {
 
 .mainBody {
     background-color: rgba(121, 140, 12, 0.5);
+    height: 700px;
+    overflow: auto;
 }
 
 .getPrice {
@@ -96,4 +98,18 @@ select {
 
 .value {
     font-size: 2em;
+}
+
+.mainBody::-webkit-scrollbar {
+    width: 1em;
+}
+
+.balance {
+    border-top: 1px solid black;
+    position: absolute;
+    bottom: 150px;
+}
+
+.bottomRow th {
+    padding-top: 20px;
 }
