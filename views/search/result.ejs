@@ -1,4 +1,4 @@
-<div class="mainBody">
+<div class="mainBody col-xs-9">
   <form action="/search/result" method="POST">
     <div class="form-group">
       <label for="name">Card Name</label>
@@ -9,16 +9,19 @@
 
   <% results.forEach(function(results){ %>
     <div class="well">
-      <img class="cardThumb"src="<%= results.image_uri%>">
-      <h2 class="capitalize"><%= results.name %></h2>
-      <p>Code: <%= results.set%></p>
-      <p>Set Name: <%= results.set_name%></p>
-      <p>Rarity: <%= results.rarity %></p>
-
-      <div class="prices">
-        <p>Price: <%= results.usd%></p>
+      <div class="cardDisplay">
+        <img class="cardThumb"src="<%= results.image_uri%>">
       </div>
-      <div>
+      <div class="cardDisplay">
+        <h2 class="capitalize"><%= results.name %></h2>
+        <p>Code: <%= results.set%></p>
+        <p>Set Name: <%= results.set_name%></p>
+        <p class="capitalized">Rarity: <%= results.rarity %></p>
+        <div class="prices">
+          <p>Price: <%= results.usd%></p>
+        </div>
+      </div>
+      <div class="cardDisplay">
         <form method="POST" action="/collection">
           <input hidden type="text" name="name" value="<%= results.name%>">
           <input hidden type ="text" name="img" value="<%= results.image_uri %>>">
@@ -32,4 +35,7 @@
       </div>
     </div>
   <% }); %>
+</div>
+<div class="col-xs-3 sidebar">
+  <h2>Quick Links:</h2>
 </div>
