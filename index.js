@@ -56,7 +56,9 @@ app.get("/", function(req, res) {
 
 
 app.get('/profile', isLoggedIn, function(req, res) {
-    document.getElementById('login').addClass('hidden')
+    // db.user.findOne({
+    //   where: {id= req.user.id}
+    // }).then
     res.render('profile');
 });
 
