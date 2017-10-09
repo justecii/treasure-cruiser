@@ -19,7 +19,6 @@ router.get("/", isLoggedIn, function(req, res) {
                 priceArray.push(makeNum);
             }
         }
-        console.log(priceArray);
         var priceSum = (priceArray.reduce(function(a, b) {
             return a + b;
         }, 0)).toFixed(2);
@@ -55,10 +54,20 @@ router.delete('/:id', isLoggedIn, function(req, res) {
             id: removeMe,
         }
     }).then(function() {
-        res.render('/')
+        res.render('trade')
     }).catch(function(error) {
         res.send('There is some kind of error!');
     });
 });
 
+//execute trade aka remove all cards in active trade from collection and trade
+router.delete("/:idx/execute", isLoggedIn, function(req, res) {
+    console.log("farrrrrrtTTTTTTTTTTTT")
+    db.trade.destroy({
+        where: { userId: req.user.id }
+    }).then(function() {
+
+        res.render("trade")
+    })
+})
 module.exports = router;

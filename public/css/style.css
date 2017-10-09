@@ -3,13 +3,27 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: rgba(233, 205, 12);
     font-family: 'Ubuntu', sans-serif;
 }
 
-#title {
+.title {
     font-family: 'Germania One', cursive;
-    font-size: 3em;
+    font-size: 4em;
+    color: rgba(233, 205, 12, 1);
+}
+
+.intro {
+    margin: 50px 0px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.subtitle {
+    font-family: 'Germania One', cursive;
+    font-size: 2em;
+    color: rgba(233, 205, 12, 1);
 }
 
 #name {
@@ -31,6 +45,13 @@ select {
     list-style: none;
     display: inline;
     text-decoration: none;
+    padding: 0px;
+    margin: none;
+    text-align: right;
+}
+
+#nav-head.navSearch {
+    width: 20%
 }
 
 #nav-head li {
@@ -41,28 +62,36 @@ select {
     color: rgb(233, 205, 12);
 }
 
+#nav-head li.index {
+    width: 10%;
+    text-align: right;
+}
+
 .cardDisplay {
     display: inline-block;
     margin-right: 10px;
+    width: 30%;
+    vertical-align: top;
 }
 
 .cardThumb {
-    height: 150px;
+    height: 200px;
     vertical-align: bottom;
 }
 
 .well {
-    width: 400px;
-    display: inline-block;
+    width: 100%;
     background-color: transparent;
     border: none;
+    padding: 0px;
 }
 
 .mainBody {
-    background-color: rgba(121, 140, 12, 0.5);
+    background-color: rgba(183, 117, 27, 0.5);
     height: 700px;
     overflow: auto;
     color: white;
+    border-radius: 10px;
 }
 
 .getPrice {
@@ -87,21 +116,22 @@ select {
     color: white;
 }
 
-.update {
-    background-color: blue;
+.btn-group-vertical {
+    vertical-align: top;
+    text-align: right;
 }
 
-.remove {
-    background-color: red;
-}
-
-.buttons {
-    display: inline;
-    margin: 0 auto;
+.clickables {
+    width: 140px;
+    margin: 5px 0px;
 }
 
 .value {
     font-size: 2em;
+}
+
+.capitalized {
+    text-transform: capitalize;
 }
 
 .mainBody::-webkit-scrollbar {
@@ -130,6 +160,13 @@ select {
 .fp {
     font-size: 10px;
     color: white;
+}
+
+#footer {
+    background-color: rgba(233, 205, 12, 0.8);
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 #footer ul {

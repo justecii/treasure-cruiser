@@ -1,34 +1,35 @@
-<form action="/search/result" method="POST">
-  <div class="form-group">
-    <label for="name">Card Name</label>
-    <input id="name" class="form-control" type="text" name="name" placeholder="Search Card">
-    <input class="btn btn-primary" type="submit">
-  </div>
-</form>
-
-<% results.forEach(function(results){ %>
-  <div class="well">
-    <img class="cardThumb"src="<%= results.image_uri%>">
-    <h2 class="capitalize"><%= results.name %></h2>
-    <p>Code: <%= results.set%></p>
-    <p>Set Name: <%= results.set_name%></p>
-    <p>Rarity: <%= results.rarity %></p>
-
-    <div class="prices">
-      <p>Price: <%= results.usd%></p>
+<div class="mainBody">
+  <form action="/search/result" method="POST">
+    <div class="form-group">
+      <label for="name">Card Name</label>
+      <input id="name" class="form-control" type="text" name="name" placeholder="Search Card">
+      <input class="btn btn-primary" type="submit">
     </div>
-    <div>
-      <form method="POST" action="/collection">
-        <input hidden type="text" name="name" value="<%= results.name%>">
-        <input hidden type ="text" name="img" value="<%= results.image_uri %>>">
-        <input hidden type ="text" name="bigImg" value="<%= results.image_uri%>">
-        <input hidden type ="text" name="setName" value="<%= results.set_name%>">
-        <input hidden type ="text" name="multiverseId" value="<%= results.multiverse_id %>">
-        <input hidden type ="text" name="rarity" value="<%= results.rarity%>">
-        <input hidden type="text" name="price" value="<%= results.usd %>">
-        <button class="btn btn-primary" type="submit">Add to Collection</button>
-      </form>
-    </div>
-  </div>
-<% }); %>
+  </form>
 
+  <% results.forEach(function(results){ %>
+    <div class="well">
+      <img class="cardThumb"src="<%= results.image_uri%>">
+      <h2 class="capitalize"><%= results.name %></h2>
+      <p>Code: <%= results.set%></p>
+      <p>Set Name: <%= results.set_name%></p>
+      <p>Rarity: <%= results.rarity %></p>
+
+      <div class="prices">
+        <p>Price: <%= results.usd%></p>
+      </div>
+      <div>
+        <form method="POST" action="/collection">
+          <input hidden type="text" name="name" value="<%= results.name%>">
+          <input hidden type ="text" name="img" value="<%= results.image_uri %>>">
+          <input hidden type ="text" name="bigImg" value="<%= results.image_uri%>">
+          <input hidden type ="text" name="setName" value="<%= results.set_name%>">
+          <input hidden type ="text" name="multiverseId" value="<%= results.multiverse_id %>">
+          <input hidden type ="text" name="rarity" value="<%= results.rarity%>">
+          <input hidden type="text" name="price" value="<%= results.usd %>">
+          <button class="btn btn-primary" type="submit">Add to Collection</button>
+        </form>
+      </div>
+    </div>
+  <% }); %>
+</div>

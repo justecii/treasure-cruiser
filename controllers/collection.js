@@ -19,11 +19,9 @@ router.get("/", isLoggedIn, function(req, res) {
                 priceArray.push(makeNum);
             }
         }
-        console.log(priceArray);
         var priceSum = (priceArray.reduce(function(a, b) {
             return a + b;
         }, 0)).toFixed(2);
-        console.log(priceSum)
         res.render('collection/index', { result: result, priceSum: priceSum });
     }).catch(function(error) {
         res.send('There is some kind of error!');
@@ -78,12 +76,10 @@ router.put('/:id', function(req, res) {
             }
             var data = JSON.parse(body);
             var results = data.usd
-            console.log(results)
         })
     }).then(function(results) {
-        console.log("CLICKED DAT SHIT ____!!!!!!!!!!")
         db.collection.update({ price: results }, { where: { id: dbId } });
-        res.render('collection/index')
+        res.render('/')
     });
 });
 

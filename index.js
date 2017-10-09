@@ -49,19 +49,14 @@ app.use(passport.session());
 // app.get('/', function(req, res) {
 //     res.render('nologin');
 // });
-app.get("/", isLoggedIn, function(req, res) {
-    var userId = String(req.user.id);
-    db.collection.findAll({
-        where: { userId: userId },
-    }).then(function(results) {
-        res.render('index');
-    }).catch(function(error) {
-        res.send('There is some kind of error!');
-    });
-
+app.get("/", function(req, res) {
+    console.log("Welcome to Treasure Cruiser")
+    res.render('index');
 });
 
+
 app.get('/profile', isLoggedIn, function(req, res) {
+    document.getElementById('login').addClass('hidden')
     res.render('profile');
 });
 

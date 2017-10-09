@@ -18,7 +18,6 @@ router.post("/result", function(req, res) {
         }
         var data = JSON.parse(body);
         var results = data.data
-        console.log(data.data);
         res.render('search/result', { results: results })
     });
 });

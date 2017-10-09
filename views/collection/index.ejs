@@ -5,22 +5,26 @@
       <div class="cardDisplay">
         <img class="cardThumb" src="<%= result.img %>">
       </div>
-      <div class="cardDisplay">
-        <h4 class="capitalize"><%= result.cardName %></h4>
+      <div class="cardDisplay cardInfo">
+        <h3 class="displayTitle bold"><%= result.cardName %></h3>
         <p>Set Name: <%= result.setName%></p>
-        <p>Rarity: <%= result.rarity %></p>
+        <p class="capitalized">Rarity: <%= result.rarity %></p>
         <p>Price: $<%= result.price %></p>
+        <p>Updated at:</p>
       </div>
-      <div class='clickables'>
+      <div class='cardDisplay btn-group-vertical'>
         <form action="/collection/<%= result.id %>" method="put" class="put buttons">
           <input hidden type="text" name="multiverseId" value="<%= result.multiverseId %>">
-          <button type="submit" class="btn-primary">Update Price</button>
+          <button type="submit" class="btn btn-primary clickables">Update Price</button>
         </form>
-        <a href="/collection/<%=result.id%>" type="submit" class="btn btn-danger remove buttons">Remove</a>
+        <form class="buttons">
+          <a href="/collection/<%=result.id%>" type="submit" class="btn btn-danger remove clickables">Remove</a>
+        </form>
+
         <form action="/trade" method="POST" class="buttons">
           <input hidden type="text" name="name" value="<%= result.cardName%>">
           <input hidden type="text" name="price" value="<%= result.price %>">
-          <button class="btn btn-success" type="submit">Add to Trade</button>
+          <button class="btn btn-success clickables" type="submit">Add to Trade</button>
         </form>
       </div>
     </div>

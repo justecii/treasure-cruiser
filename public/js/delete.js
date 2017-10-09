@@ -6,9 +6,7 @@ $('document').ready(function() {
         $.ajax({
             method: 'delete',
             url: url
-        }).done(function(data) {
-            console.log(data);
-        });
+        }).done(function(data) {});
         window.location = '/collection'
     })
 });
@@ -24,7 +22,7 @@ $('.put').on('submit', function(e) {
         url: url,
         data: formData
     }).done(function(data) {
-        window.location = '/collection';
+        window.location = '/collection/index';
     });
 });
 $('.noTrade').on('click', function(e) {
@@ -34,8 +32,19 @@ $('.noTrade').on('click', function(e) {
     $.ajax({
         method: 'delete',
         url: url
-    }).done(function(data) {
-        console.log(data);
-    });
+    }).done(function(data) {});
+    window.location = '/trade'
+})
+$('.execute').on('click', function(e) {
+    e.preventDefault();
+    var toRemove = $(this);
+    console.log($(this))
+    console.log(toRemove)
+    var url = toRemove.attr('href');
+    console.log(url)
+    $.ajax({
+        method: 'delete',
+        url: url
+    }).done(function(data) {});
     window.location = '/trade'
 })

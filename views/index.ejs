@@ -1,31 +1,14 @@
-<script>
-//still needs work
-  var counter = 1;
-  var limit = 3;
-  function addInput(divName){
-      if (counter == limit)  {
-            alert("You have reached the limit of adding " + counter + " inputs");
-      }
-      else {
-            var newdiv = document.createElement('select');
-            var option = document.createElement('option');
-            option.text = "Kiwi";
-            newdiv.add(option);
-
-            document.getElementById(divName).appendChild(newdiv);
-            counter++;
-      }
-  }
-</script>
-
-<div>
-  <div class="col-xs-8">
-
+<div class="mainBody">
+  <div class="col-xs-12 intro centered">
+    <h2 class="title">Treasure Cruiser</h2>
+    <p>Track your Magic the Gathering collection online and trade with other users quickly</p>
   </div>
-  <div class="col-xs-4">
-    <h2>How to Cruise</h2>
-    <p>Welcome to Treasure Cruiser, your online source for easy Magic the gathering trades. </br>
-    Login to create a profile and start adding cards to your collection. You can then easily click on the cards in your collection to add them to trades. We'll calculate the values for you so that you don't have to.</p>
+  <div class="col-xs-12">
+    <h2 class="subtitle">How to Cruise</h2>
+    <p>Begin Cruising by Logging in or Creating a new profile. <br>
+    From there you can search for cards and start adding them to your collection. <br>
+    Click on your collection to see your collection value and what cards you'd like to trade. <br>
+    Trades are easy, once you've begun adding cards, We'll calculate the values for you so that you can make fair trades easily.</p>
   </div>
 </div>
 
