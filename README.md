@@ -21,7 +21,7 @@ I wanted to start this project with having good wireframes and planning my route
 ### Routes
 
 ### Javascript logic
-
+```
 function drySpin(num) {
     var randomFirst = Math.floor(Math.random()*10);
     var randomSecond = Math.floor(Math.random()*10);
