@@ -10,7 +10,7 @@
         <p>Set Name: <%= result.setName%></p>
         <p class="capitalized">Rarity: <%= result.rarity %></p>
         <p>Price: $<%= result.price %></p>
-        <p>Updated at:</p>
+        <p class="fp">Updated at: <%= result.updatedAt %></p>
       </div>
       <div class='cardDisplay btn-group-vertical'>
         <form action="/collection/<%= result.id %>" method="put" class="put buttons">

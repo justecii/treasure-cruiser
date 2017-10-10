@@ -5,6 +5,16 @@ body {
     background-attachment: fixed;
     font-family: 'Ubuntu', sans-serif;
     min-height: 100%;
+    font-size: 18px;
+}
+
+#logo {
+    height: 100px;
+    margin-left: 50px;
+}
+
+#homeLogo {
+    height: 200px;
 }
 
 .title {
@@ -37,7 +47,6 @@ select {
 
 #header {
     margin-bottom: 10px;
-    background-color: rgb(36, 35, 128);
     color: rgb(233, 205, 12);
     width: 100%;
 }
@@ -49,6 +58,8 @@ select {
     padding: 0px;
     margin: none;
     text-align: right;
+    margin-top: 40px;
+    font-size: 1.2em;
 }
 
 #nav-head.navSearch {
@@ -66,6 +77,12 @@ select {
 #nav-head li.index {
     width: 10%;
     text-align: right;
+}
+
+input.search-query {
+    background-color: rgba(235, 220, 202, 0.5);
+    color: rgb(36, 35, 128);
+    border: none;
 }
 
 .cardDisplay {
@@ -88,7 +105,8 @@ select {
 }
 
 .mainBody {
-    background-color: rgba(183, 117, 27, 0.5);
+    /* background-color: rgba(183, 117, 27, 0.5); */
+    background-color: rgba(93, 93, 114, 0.5);
     height: 700px;
     overflow: auto;
     color: white;
@@ -96,8 +114,8 @@ select {
 }
 
 .getPrice {
-    background-color: #3535F3;
-    color: gold;
+    background-color: rgb(36, 35, 128);
+    color: rgb(233, 205, 12);
 }
 
 .search {
