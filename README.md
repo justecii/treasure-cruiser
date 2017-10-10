@@ -37,7 +37,7 @@ function drySpin(num) {
 Once i got the images to appear, I went back to trying different stylings to get them to appear. I poured over dozens of examples and spent hours trying to have a traditional slot animation. After all this time, I concluded that there was no solution that involved a language I am currently comfortable with and I would spin too much time on this project trying to learn a new language just for an animation. The problem was i couldn't find something that would rotate along the z-axis while also fitting into place 3 images in 3 different table rows. I decided to get creative in different ways and use animations to make my spins more attractive and desirable. I decided to use an animation of the Millennium Falcon "flying" across my screen and the slots displaying as it passed by them.
 
 Once I was satisfied with my slot animations, i moved to working on the logic for determining game wins. I decided to compare if the elements on a particular line were the same by comparing their classes since they were all given a class coresponding to the image in the array. Since I had already determined that I was going to allow for a win if only three elements on a payline were the same, I needed to use a lot of if statements, with nested if's to compare different possible wins: I drew out the paylines and then figured out all of the different potential victories i might have for each payline. Once that was all completed. I created a few more functions to contain my different win functions and tied them to which bet had been chosen by the user. This also required me to make sure the user's bet wasn't larger than the amount of credits they had available to them.
-![alt text](images/IMG_20170917_230239.jpg)
+![alt text](/public/img/wireframe1.png)
 
 ### Additional Styling & Edits
 
@@ -50,9 +50,9 @@ Once I was satisfied with my slot animations, i moved to working on the logic fo
 * https://fontawesome.bootstrapcheatsheets.com/ - Bootstrap & Font Awesome icons
 * Google Fonts - for fonts of course
 * https://css-tricks.com/almanac/properties/s/scrollbar/ - scrollbar manipulation (it gone)
-* 
-* 
-* 
+* https://www.w3.org/TR/CSS21/colors.html#background-properties - keep my background image in place and the same size
+* https://stackoverflow.com/questions/1230233/how-to-find-the-sum-of-an-array-of-numbers - used this to figure out how to sum collections and trade values
+* http://docs.sequelizejs.com/manual/tutorial/migrations.html - general help on using sequelize, especially with all my migrations;
 * 
 * 
 
@@ -66,6 +66,10 @@ Once I was satisfied with my slot animations, i moved to working on the logic fo
 * SQL
 * Postgres
 * Bootstrap
+
+### To Do:
+* Add a second user option to trades
+* Fix when the user searches for a card that doesn't exist
 
 ### Acknowledgments
 * 
