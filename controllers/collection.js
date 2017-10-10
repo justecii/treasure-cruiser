@@ -80,7 +80,7 @@ router.put('/:id', function(req, res) {
     }).then(function(results) {
         db.collection.update({ price: results }, { where: { id: dbId } });
     }).then(function() {
-        res.redirect('/')
+        res.render('/')
     });
 });
 

@@ -54,7 +54,7 @@ router.delete('/:id', isLoggedIn, function(req, res) {
             id: removeMe,
         }
     }).then(function() {
-        res.render('trade')
+        res.render('/')
     }).catch(function(error) {
         res.send('There is some kind of error!');
     });
