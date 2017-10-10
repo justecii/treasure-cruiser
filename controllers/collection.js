@@ -79,7 +79,8 @@ router.put('/:id', function(req, res) {
         })
     }).then(function(results) {
         db.collection.update({ price: results }, { where: { id: dbId } });
-        res.render('/')
+    }).then(function() {
+        res.redirect('/')
     });
 });
 

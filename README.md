@@ -45,6 +45,14 @@ Once I was satisfied with my slot animations, i moved to working on the logic fo
 
 
 ### Resources:
+* https://scryfall.com/ - API i used; Free, open sourced, had pretty much everything I needed
+* http://www.espn.com/nba/tradeMachine - The inspiration for the app. If you can pretend to trade basketball players, why not MTG cards?
+* https://fontawesome.bootstrapcheatsheets.com/ - Bootstrap & Font Awesome icons
+* Google Fonts - for fonts of course
+* https://css-tricks.com/almanac/properties/s/scrollbar/ - scrollbar manipulation (it gone)
+* 
+* 
+* 
 * 
 * 
 
