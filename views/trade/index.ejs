@@ -2,16 +2,16 @@
   <h2>My Trades</h2>
   <table class="ledger">
     <thead>
-      <th>Card Name</th>
-      <th>Price</th>
-      <th></th>
+      <th class="firstColumn">Card Name</th>
+      <th class="secondColumn">Price</th>
+      <th class="thirdColumn"></th>
     </thead>
     <tbody>
       <% result.forEach(function(result) {%>
       <tr>
-        <td class="cardId"><%= result.cardName %></td>
-        <td class="price">$<%= result.price %></td>
-        <td><a href="/trade/<%=result.id%>" type="submit" class="btn btn-danger noTrade">-</a></td>
+        <td class="cardId firstColumn"><%= result.cardName %></td>
+        <td class="price secondColumn">$<%= result.price %></td>
+        <td class="thirdColumn"><a href="/trade/<%=result.id%>" type="submit" class="btn btn-danger noTrade">-</a></td>
 
       </tr>
       <% });%>
@@ -20,17 +20,17 @@
 
   <table class="balance">
     <tr class="bottomRow">
-      <th>Trade Value</th>
-      <th><%= priceSum %></th>
-      <th><a href="/trade/farge/execute" type="submit" class="btn btn-success execute">EXECUTE TRADE</a></th>
+      <th class="firstColumn">Trade Value</th>
+      <th class="secondColumn"><%= priceSum %></th>
+      <th class="thirdColumn"><a href="/trade/farge/execute" type="submit" class="btn btn-success execute">EXECUTE TRADE</a></th>
     </tr>
   </table>
 </div>
 <div class="col-xs-3 sidebar">
   <h2>How to Trade:</h2>
   <p>Go to your collection to add cards to trade. We'll keep track of the value as you go.<br>
-    Remove a card from your trade by hitting the red button. <br>
-    Execute the trade and remove cards from your collection.
+    Remove a card from your trade by hitting the <span class="red">red</span> button. <br>
+    <span class="green">Execute</span> the trade and remove cards from your collection.
   </p>
 </div>
 

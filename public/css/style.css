@@ -130,6 +130,10 @@ input.search-query {
     color: blue;
 }
 
+.searchBar {
+    width: 50%;
+}
+
 .add {
     background-color: #0CB80C;
     color: white;
@@ -149,6 +153,11 @@ input.search-query {
     font-size: 2em;
 }
 
+.signUp {
+    margin: 2% 10%;
+    color: rgb(233, 205, 12);
+}
+
 .capitalized {
     text-transform: capitalize;
 }
@@ -162,14 +171,27 @@ input.search-query {
 }
 
 .balance {
-    border-top: 1px solid black;
-    width: 400px;
+    border-top: 3px solid black;
     position: absolute;
     bottom: 150px;
 }
 
-.ledger {
-    width: 400px;
+.ledger th {
+    color: rgb(233, 205, 12);
+    font-family: 'Germania One', cursive;
+    font-size: 1.5em;
+}
+
+.firstColumn {
+    width: 300px;
+}
+
+.secondColumn {
+    width: 100px;
+}
+
+.thirdColumn {
+    width: 150px;
 }
 
 .bottomRow th {
@@ -190,4 +212,16 @@ input.search-query {
 
 #footer ul {
     list-style: none;
+}
+
+.red {
+    color: #F34545;
+}
+
+.green {
+    color: #25BE25;
+}
+
+.inline {
+    display: inline;
 }
