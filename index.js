@@ -56,9 +56,6 @@ app.get("/", function(req, res) {
 
 
 app.get('/profile', isLoggedIn, function(req, res) {
-    // db.user.findOne({
-    //   where: {id= req.user.id}
-    // }).then
     res.render('profile');
 });
 app.get('/contact', function(req, res) {

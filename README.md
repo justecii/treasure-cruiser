@@ -20,11 +20,11 @@ I wanted to start this project with having good wireframes and planning my route
 ### Models
 
 ### Routes
-| Method      | URL         | Description  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Method | URL           | Description  |
+| ------ |:-------------:| ------------:|
+| GET    | /             | Displays home page        |
+| GET    | /profile      | Displays users Profile Page |
+| GET    | /contact      | Displays my personal contact info    |
 
 ### Javascript logic
 ```
