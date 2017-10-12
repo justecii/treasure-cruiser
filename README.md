@@ -20,20 +20,15 @@ I wanted to start this project with having good wireframes and planning my route
 ### Models
 
 ### Routes
+| Method      | URL         | Description  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 ### Javascript logic
 ```
-function drySpin(num) {
-    var randomFirst = Math.floor(Math.random()*10);
-    var randomSecond = Math.floor(Math.random()*10);
-    var randomThird = Math.floor(Math.random()*10);
-    middleRow[num].appendChild(document.createElement("img")).src = slotImages[randomFirst].source;
-    middleRow[num].childNodes.className = slotImages[randomFirst].name;
-    topRow[num].appendChild(document.createElement("img")).src = slotImages[randomSecond].source;
-    topRow[num].childNodes.className = slotImages[randomSecond].name;
-    bottomRow[num].appendChild(document.createElement("img")).src =slotImages[randomThird].source;
-    bottomRow[num].childNodes.className = slotImages[randomThird].name;
-};
+
 ```
 
 
