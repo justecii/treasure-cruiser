@@ -24,7 +24,22 @@ I wanted to start this project with having good wireframes and planning my route
 | ------ |:-------------:| ------------:|
 | GET    | /             | Displays home page        |
 | GET    | /profile      | Displays users Profile Page |
-| GET    | /contact      | Displays my personal contact info    |
+| GET    | /contact      | Displays my personal contact info |
+| GET    | /signup       | Brings new user to sign up page   |
+| POST   | /signup       | Creates a new user or denies access if user exists already |
+| GET    | /login        | Brings user to the login screen |
+| POST   | /login        | Checks for password success from user |
+| GET    | /logout       | Logs the user out and redirects to the homepage |
+| GET    | /collection         | Finds and displays the user's collection |
+| POST   | /collection         | Adds a card to the user's collection |
+| DELETE | /collection/:id     | Deletes a specific card (:id) from user's collection |
+| PUT    | /collection/:id     | Updates the price of the card in user's collection with API call |
+| GET    | /search             | Displays a basic search page for user |
+| POST   | /search/results     | Calls the api with a user query |
+| GET    | /trade              | Displays Trades page and any cards the user may have in the trade |
+| POST   | /trade              | Adds card from user's collection to user's trade |
+| DELETE | /trade/:id          | Removes a card from trade that user doesn't want to trade |
+| DELETE | /trade/:idx/execute | Executes a trade and removes all cards in trade   |
 
 ### Javascript logic
 ```

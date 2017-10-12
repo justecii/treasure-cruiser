@@ -62,7 +62,6 @@ router.delete('/:id', isLoggedIn, function(req, res) {
 
 //execute trade aka remove all cards in active trade from collection and trade
 router.delete("/:idx/execute", isLoggedIn, function(req, res) {
-    console.log("farrrrrrtTTTTTTTTTTTT")
     db.trade.destroy({
         where: { userId: req.user.id }
     }).then(function() {
