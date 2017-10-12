@@ -6,15 +6,16 @@ About three years ago, I started playing Magic and it has quickly become one of 
 
 ### Getting Started:
 I wanted to start this project with having good wireframes and planning my routes out as much as possible.
-![alt text](images/IMG_20170917_213511.jpg)
+![alt text](/public/img/wireframe1.png)
+![alt text](/public/img/wireframe2.png)
+![alt text](/public/img/wireframe3.png)
 
 //Example of list
-1. Bet 1 - Only Payline 1 as possible victory
-1. Bet 3 - Paylines 1-3 as possible victory
-1. Bet 5 - All 5 paylines
-1. Bet 20 - same as Bet 1 but with 20x greater reward
-1. Bet 60 - same as Bet 3 but with 20x greater reward
-1. Bet 100 - same as Bet 5 but with 20x greater reward
+1. 
+1. 
+1. 
+1. 
+1. 
 
 ### Models
 
@@ -34,10 +35,8 @@ function drySpin(num) {
     bottomRow[num].childNodes.className = slotImages[randomThird].name;
 };
 ```
-Once i got the images to appear, I went back to trying different stylings to get them to appear. I poured over dozens of examples and spent hours trying to have a traditional slot animation. After all this time, I concluded that there was no solution that involved a language I am currently comfortable with and I would spin too much time on this project trying to learn a new language just for an animation. The problem was i couldn't find something that would rotate along the z-axis while also fitting into place 3 images in 3 different table rows. I decided to get creative in different ways and use animations to make my spins more attractive and desirable. I decided to use an animation of the Millennium Falcon "flying" across my screen and the slots displaying as it passed by them.
 
-Once I was satisfied with my slot animations, i moved to working on the logic for determining game wins. I decided to compare if the elements on a particular line were the same by comparing their classes since they were all given a class coresponding to the image in the array. Since I had already determined that I was going to allow for a win if only three elements on a payline were the same, I needed to use a lot of if statements, with nested if's to compare different possible wins: I drew out the paylines and then figured out all of the different potential victories i might have for each payline. Once that was all completed. I created a few more functions to contain my different win functions and tied them to which bet had been chosen by the user. This also required me to make sure the user's bet wasn't larger than the amount of credits they had available to them.
-![alt text](/public/img/wireframe1.png)
+
 
 ### Additional Styling & Edits
 
