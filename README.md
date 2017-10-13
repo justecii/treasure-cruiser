@@ -1,6 +1,8 @@
 # Treasure Cruiser
 ## Project 2 - Full Stack App
 
+http://treasurecruiser.herokuapp.com/
+
 For the Second project in the WDI course at GA, I wanted to combine my new full-stack skills with my love of Magic the Gathering.
 About three years ago, I started playing Magic and it has quickly become one of my favorite hobbies. In these past few years I started to notice some gaps in resources and wanted to start creating solutions to fill these gaps. For my first full-stack app, I decided to make a tool that would make it easier for players to trade cards. Players usually have a binder full of cards they bring to tournaments to trade and usually trading involves using your phone to search the value of each card in the trade, writing that value down and then getting the sum of their value. I thought it would be useful if an app did that for you. Once the cards you are trading are identified, you can add them to the trade page. Eventually I'd like to create an app that views two users collections simultaneously and counts the value of both user's trade cards to make a execute fair trades.
 
@@ -46,7 +48,21 @@ I wanted to start this project with having good wireframes and planning my route
 | DELETE | /trade/:idx/execute | Executes a trade and removes all cards in trade   | 
 
 ### Javascript logic
+Most of the Javascript for this project involved calling on a backend database through sequelize and rendering the results. It involved less logic problems and conditionals than my previous project but still had its own challenges. One bit of code I was happy to have figured out was how to sum the values of an individual users collection and then display that value on a page. I had never passed multiple parameters through a promise before so it was cool to figure out how that worked. 
 ```
+.then(function(result) {
+        //Calculate sum of collection
+        var priceArray = [];
+        for (var i = 0; i < result.length; i++) {
+            var makeNum = parseFloat(result[i].price);
+            if (makeNum > 0) {
+                priceArray.push(makeNum);
+            }
+        }
+        var priceSum = (priceArray.reduce(function(a, b) {
+            return a + b;
+        }, 0)).toFixed(2);
+        res.render('collection/index', { result: result, priceSum: priceSum });
 
 ```
 
