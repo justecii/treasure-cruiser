@@ -19,14 +19,14 @@ I wanted to start this project with having good wireframes and planning my route
 
 ### Models
 | Table     |   Attributes                  | Associations         |
-| --------- | :---------------------------: | -------------------: |
+| --------- | :---------------------------: | :------------------- |
 | user   |   id, name, password   |   models.user.hasMany(models.collection) & models.user.hasMany(models.trade)   |
 | collection   |   id, cardName, setName, price, img, bigImg, rarity, multiverseId, userId   |   models.collection.belongsToMany(models.user)   |
 |   trade   |   id, cardName, price, userId   |   models.trade.belongsToMany(models.user)   |
 
 ### Routes
 | Method | URL           | Description              |
-| ------ |:-------------:| ------------------------:|
+| ------ |:-------------:| :------------------------|
 | GET    | /             | Displays home page        |
 | GET    | /profile      | Displays users Profile Page |
 | GET    | /contact      | Displays my personal contact info |
