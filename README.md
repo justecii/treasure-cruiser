@@ -4,18 +4,17 @@
 For the Second project in the WDI course at GA, I wanted to combine my new full-stack skills with my love of Magic the Gathering.
 About three years ago, I started playing Magic and it has quickly become one of my favorite hobbies. In these past few years I started to notice some gaps in resources and wanted to start creating solutions to fill these gaps. For my first full-stack app, I decided to make a tool that would make it easier for players to trade cards. Players usually have a binder full of cards they bring to tournaments to trade and usually trading involves using your phone to search the value of each card in the trade, writing that value down and then getting the sum of their value. I thought it would be useful if an app did that for you. Once the cards you are trading are identified, you can add them to the trade page. Eventually I'd like to create an app that views two users collections simultaneously and counts the value of both user's trade cards to make a execute fair trades.
 
+### User Stories
+1. Johnny is an avid magic collector that hauls around thousands of cards and can't possibly keep track of the values of all of them
+1. Timmy likes to casually trade magic cards and is looking for some cool new cards to put in his EDH deck. He has some valuable cards, but he'd rather trade them for fun stuff.  He doesn't bother bringing too many extra things like pencil and paper to play. So he doesn't want to have to keep track of card values.
+1. Spike is a competitive player that is always looking to play the best deck. He wants to quickly make trades before a tournament so that his deck is the best deck to play.
+
 ### Getting Started:
 I wanted to start this project with having good wireframes and planning my routes out as much as possible.
 ![alt text](/public/img/wireframe1.png)
 ![alt text](/public/img/wireframe2.png)
 ![alt text](/public/img/wireframe3.png)
 
-//Example of list
-1. 
-1. 
-1. 
-1. 
-1. 
 
 ### Models
 | Table     |   Attributes                  | Associations         |
@@ -84,6 +83,8 @@ I wanted to start this project with having good wireframes and planning my route
 ### To Do:
 * Add a second user option to trades
 * Fix when the user searches for a card that doesn't exist
+* Better profile page for users
+* Change to Materialize
 
 ### Acknowledgments
 * 
