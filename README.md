@@ -18,10 +18,15 @@ I wanted to start this project with having good wireframes and planning my route
 1. 
 
 ### Models
+| Table     |   Attributes                  | Associations         |
+| --------- | :---------------------------: | -------------------: |
+| user   |   id, name, password   |   models.user.hasMany(models.collection) & models.user.hasMany(models.trade)   |
+| collection   |   id, cardName, setName, price, img, bigImg, rarity, multiverseId, userId   |   models.collection.belongsToMany(models.user)   |
+|   trade   |   id, cardName, price, userId   |   models.trade.belongsToMany(models.user)   |
 
 ### Routes
-| Method | URL           | Description  |
-| ------ |:-------------:| ------------:|
+| Method | URL           | Description              |
+| ------ |:-------------:| ------------------------:|
 | GET    | /             | Displays home page        |
 | GET    | /profile      | Displays users Profile Page |
 | GET    | /contact      | Displays my personal contact info |
@@ -39,7 +44,7 @@ I wanted to start this project with having good wireframes and planning my route
 | GET    | /trade              | Displays Trades page and any cards the user may have in the trade |
 | POST   | /trade              | Adds card from user's collection to user's trade |
 | DELETE | /trade/:id          | Removes a card from trade that user doesn't want to trade |
-| DELETE | /trade/:idx/execute | Executes a trade and removes all cards in trade   |
+| DELETE | /trade/:idx/execute | Executes a trade and removes all cards in trade   | 
 
 ### Javascript logic
 ```
