@@ -6,11 +6,11 @@
       <input class="btn btn-primary" type="submit">
     </div>
   </form>
-
   <% results.forEach(function(results){ %>
+    <%= console.log(results.image_uris.small) %>
     <div class="well">
       <div class="cardDisplay">
-        <img class="cardThumb"src="<%= results.image_uri%>">
+        <img class="cardThumb"src="<%= results.image_uris.large%>">
       </div>
       <div class="cardDisplay">
         <h2 class="capitalize"><%= results.name %></h2>

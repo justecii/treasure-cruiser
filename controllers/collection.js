@@ -76,6 +76,7 @@ router.put('/:id', function(req, res) {
             }
             var data = JSON.parse(body);
             var results = data.usd
+            console.log(data)
         })
     }).then(function(results) {
         db.collection.update({ price: results }, { where: { id: dbId } });

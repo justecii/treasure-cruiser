@@ -16,13 +16,13 @@ $('.put').on('submit', function(e) {
     var element = $(this);
     var url = element.attr('action');
     var formData = element.serialize();
-
+    console.log(url)
     $.ajax({
         method: 'put',
         url: url,
         data: formData
     }).done(function(data) {
-        window.location = '/collection/index';
+        window.location = '/collection';
     });
 });
 $('.noTrade').on('click', function(e) {
