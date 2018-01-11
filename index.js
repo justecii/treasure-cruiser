@@ -51,12 +51,19 @@ app.use(passport.session());
 // });
 app.get("/", function(req, res) {
     console.log("Welcome to Treasure Cruiser")
-    res.render('index');
+    console.log(req.user)
+    console.log(req.session)
+    res.render('index', {
+        currentUser: req.user,
+        session: req.session
+    });
 });
 
 
 app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile');
+    res.render('profile', {
+        currentUser: req.user
+    });
 });
 app.get('/contact', function(req, res) {
     res.render('contact')

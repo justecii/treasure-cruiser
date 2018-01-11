@@ -8,14 +8,14 @@
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Germania+One|Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Germania+One|Ubuntu:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
     <% include partials/header %>
     <div class="container xtra">
       <%- body %>
-      <%- JSON.stringify(currentUser) %>
+      <% JSON.stringify(currentUser) %>
 
       <% include partials/alerts %>
     </div>

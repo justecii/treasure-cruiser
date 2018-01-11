@@ -14,18 +14,11 @@
             </div>
           </form>
       </li>
-       <% if (currentUser) { %>
       <li class="index"><a href="/collection">Collection</a></li>
       <li class="index"><a href="/">Home</a></li>
       <li class="index" ><a href="/trade">Trade</a>
       <li class="index"><a href="/profile">Profile</a></li>
       <li class="index"><a href="/auth/logout">Logout</a></li>
-
-   <% } else { %>
-      <li class="index"><a href="/">Home</a></li>
-      <li class="index"><a href="/auth/signup">Signup</a></li>
-      <li class="index" id="login"><a href="/auth/login">Login</a></li>
-    <% } %>
     </ul>
   </nav>
   </div>

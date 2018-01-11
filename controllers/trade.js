@@ -22,7 +22,7 @@ router.get("/", isLoggedIn, function(req, res) {
         var priceSum = (priceArray.reduce(function(a, b) {
             return a + b;
         }, 0)).toFixed(2);
-        res.render('trade/index', { result: result, priceSum: priceSum });
+        res.render('trade/index', { result: result, priceSum: priceSum, currentUser: req.user });
     }).catch(function(error) {
         res.send('There is some kind of error!');
     });
