@@ -65,7 +65,6 @@ router.delete("/:idx/execute", isLoggedIn, function(req, res) {
     db.trade.destroy({
         where: { userId: req.user.id }
     }).then(function() {
-
         res.render("trade")
     })
 })

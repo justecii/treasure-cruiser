@@ -68,21 +68,37 @@ router.delete('/:id', isLoggedIn, function(req, res) {
 router.put('/:id', function(req, res) {
     var scryApi = "https://api.scryfall.com/cards/multiverse/";
     var dbId = req.params.id;
-    db.collection.findById(dbId).then(function(foundCard) {
-        q = foundCard.multiverseId;
-        request(scryApi + q, function(error, response, body) {
-            if (error) {
-                return res.send(error);
-            }
-            var data = JSON.parse(body);
-            var results = data.usd
-            console.log(data)
+    var multiId = req.body.multiverseId
+    var userId = String(req.user.id);
+    console.log("the params.id are " + userId)
+    request(scryApi + multiId, function(error, response, body) {
+        if (error) {
+            return res.send(error);
+        }
+        var data = JSON.parse(body)
+        var updatePrice = data.usd
+        console.log(updatePrice)
+        db.collection.update({ price: updatePrice }, { where: { id: dbId } }).then(function() {
+            db.collection.findAll({
+                where: { userId: userId },
+            }).then(function(result) {
+                //Calculate sum of collection
+                var priceArray = [];
+                for (var i = 0; i < result.length; i++) {
+                    var makeNum = parseFloat(result[i].price);
+                    if (makeNum > 0) {
+                        priceArray.push(makeNum);
+                    }
+                }
+                var priceSum = (priceArray.reduce(function(a, b) {
+                    return a + b;
+                }, 0)).toFixed(2);
+                res.render('collection/index', { result: result, priceSum: priceSum, currentUser: req.user });
+            }).catch(function(error) {
+                res.send('There is some kind of error!');
+            });
         })
-    }).then(function(results) {
-        db.collection.update({ price: results }, { where: { id: dbId } });
-    }).then(function() {
-        res.render('/')
-    });
+    })
 });
 
 module.exports = router;

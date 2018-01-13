@@ -1,4 +1,11 @@
-<div class="col-xs-9 mainBody">
+<div class="col-xs-12 sidebar">
+  <h2>How to Trade:</h2>
+  <p>Go to your collection to add cards to trade. We'll keep track of the value as you go.<br>
+    Remove a card from your trade by hitting the <span class="red">red</span> button. <br>
+    <span class="green">Execute</span> the trade and remove cards from your collection.
+  </p>
+</div>
+<div class="col-xs-6 mainBody">
   <h2>My Trades</h2>
   <table class="ledger">
     <thead>
@@ -26,12 +33,34 @@
     </tr>
   </table>
 </div>
-<div class="col-xs-3 sidebar">
-  <h2>How to Trade:</h2>
-  <p>Go to your collection to add cards to trade. We'll keep track of the value as you go.<br>
-    Remove a card from your trade by hitting the <span class="red">red</span> button. <br>
-    <span class="green">Execute</span> the trade and remove cards from your collection.
-  </p>
+<div class="col-xs-6 mainBody">
+  <h2>Partner Trades</h2>
+  <table class="ledger">
+    <thead>
+      <th class="firstColumn">Card Name</th>
+      <th class="secondColumn">Price</th>
+      <th class="thirdColumn"></th>
+    </thead>
+    <tbody>
+      <% result.forEach(function(result) {%>
+      <tr>
+        <td class="cardId firstColumn"><%= result.cardName %></td>
+        <td class="price secondColumn">$<%= result.price %></td>
+        <td class="thirdColumn"><a href="/trade/<%=result.id%>" type="submit" class="btn btn-danger noTrade">-</a></td>
+
+      </tr>
+      <% });%>
+    </tbody>
+  </table>
+
+  <table class="balance">
+    <tr class="bottomRow">
+      <th class="firstColumn">Trade Value</th>
+      <th class="secondColumn"><%= priceSum %></th>
+      <th class="thirdColumn wait">Confirmation?</th>
+    </tr>
+  </table>
 </div>
+
 
 
