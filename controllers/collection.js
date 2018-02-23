@@ -64,6 +64,24 @@ router.delete('/:id', isLoggedIn, function(req, res) {
     });
 });
 
+
+// browse other user's
+router.get('/browse', isLoggedIn, function(req, res) {
+    db.user.findAll().then(function(result) {
+        res.render('collection/browse', { result: result, userCollection: false });
+    }).catch(function(error) {
+        res.send("Error - Cant find Other Users")
+    });
+});
+// get specific user's collection
+router.post('/browse', function(req, res) {
+    db.collection.findAll({
+        where: { userId: req.body.selectpicker }
+    }).then(function(result) {
+        console.log(result)
+    })
+})
+
 //Call the api, get the price, change the collections database to have the new price
 router.put('/:id', function(req, res) {
     var scryApi = "https://api.scryfall.com/cards/multiverse/";

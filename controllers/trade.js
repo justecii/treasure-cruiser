@@ -22,11 +22,14 @@ router.get("/", isLoggedIn, function(req, res) {
         var priceSum = (priceArray.reduce(function(a, b) {
             return a + b;
         }, 0)).toFixed(2);
-        res.render('trade/index', { result: result, priceSum: priceSum, currentUser: req.user });
+        let userList = []
+        db.user.findAll().then(function(result) {
+            userList = result;
+        })
+        res.render('trade/index', { result: result, priceSum: priceSum, currentUser: req.user, userList: userList });
     }).catch(function(error) {
         res.send('There is some kind of error!');
     });
-
 });
 
 //add a card to trade
